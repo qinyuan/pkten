@@ -1,0 +1,554 @@
+/* reset */
+* {
+    vertical-align: baseline;
+    font-weight: inherit;
+    font-family: "微软雅黑", Verdana, SimHei, "Microsoft JhengHei", Tahoma;
+    font-style: inherit;
+    font-size: 100%;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.break-word {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.shadow {
+    -moz-box-shadow: 1px 1px 10px rgb(213, 213, 213);
+    -webkit-box-shadow: 1px 1px 10px rgb(213, 213, 213);
+    box-shadow: 1px 1px 10px rgb(213, 213, 213);
+}
+
+/* style of normal table */
+table.normal {
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+
+table.normal thead {
+    border-bottom: 1px solid #000000;
+}
+
+table.normal thead th {
+    font-weight: bold;
+    text-align: center;
+    background-color: #F3F3F3;
+}
+
+table.normal tbody tr {
+    border-bottom: 1px dashed #cccccc;
+}
+
+table.normal th, table.normal td {
+    padding: 5px;
+    font-size: 10pt;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+table.normal thead th div.filter {
+    position: relative;
+    float: right;
+    font-weight: normal;
+}
+
+table.normal thead th div.filter button.filter {
+    vertical-align: top;
+    padding: 9px 9px;
+    background: url("images/table-filter.png") no-repeat;
+    cursor: pointer;
+}
+
+table.normal thead th div.filter button.filter.asc {
+    background-position: -19px 0;
+}
+
+table.normal thead th div.filter button.filter.desc {
+    background-position: -37px 0;
+}
+
+table.normal thead th div.filter button.filter.filtered {
+    background-position: -90px 0;
+}
+
+table.normal thead th div.filter button.filter.filtered.asc {
+    background-position: -72px 0;
+}
+
+table.normal thead th div.filter button.filter.filtered.desc {
+    background-position: -54px 0;
+}
+
+/* style about image */
+img.link {
+    cursor: pointer;
+}
+
+/* style about transparent */
+.lightTransparent {
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+.mediumTransparent {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.deepTransparent {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+
+@-webkit-keyframes rotate-animation {
+    0% {
+        -webkit-transform: perspective(800px) rotateY(0deg);
+    }
+    70% {
+        -webkit-transform: perspective(800px) rotateY(200deg);
+    }
+    100% {
+        -webkit-transform: perspective(800px) rotateY(180deg);
+    }
+}
+
+@-moz-keyframes rotate-animation {
+    0% {
+        -moz-transform: perspective(800px) rotateY(0deg);
+    }
+    70% {
+        -moz-transform: perspective(800px) rotateY(200deg);
+    }
+    100% {
+        -moz-transform: perspective(800px) rotateY(180deg);
+    }
+}
+
+@keyframes rotate-animation {
+    0% {
+        -webkit-transform: perspective(800px) rotateY(0deg);
+        -moz-transform: perspective(800px) rotateY(0deg);
+        -ms-transform: perspective(800px) rotateY(0deg);
+        -o-transform: perspective(800px) rotateY(0deg);
+        transform: perspective(800px) rotateY(0deg);
+    }
+    70% {
+        -webkit-transform: perspective(800px) rotateY(200deg);
+        -moz-transform: perspective(800px) rotateY(200deg);
+        -ms-transform: perspective(800px) rotateY(200deg);
+        -o-transform: perspective(800px) rotateY(200deg);
+        transform: perspective(800px) rotateY(200deg);
+    }
+    100% {
+        -webkit-transform: perspective(800px) rotateY(180deg);
+        -moz-transform: perspective(800px) rotateY(180deg);
+        -ms-transform: perspective(800px) rotateY(180deg);
+        -o-transform: perspective(800px) rotateY(180deg);
+        transform: perspective(800px) rotateY(180deg);
+    }
+}
+
+@-webkit-keyframes rotate-inverse-animation {
+    0% {
+        -webkit-transform: perspective(800px) rotateY(-180deg);
+    }
+    70% {
+        -webkit-transform: perspective(800px) rotateY(20deg);
+    }
+    100% {
+        -webkit-transform: perspective(800px) rotateY(0deg);
+    }
+}
+
+@-moz-keyframes rotate-inverse-animation {
+    0% {
+        -moz-transform: perspective(800px) rotateY(-180deg);
+    }
+    70% {
+        -moz-transform: perspective(800px) rotateY(20deg);
+    }
+    100% {
+        -moz-transform: perspective(800px) rotateY(0deg);
+    }
+}
+
+@keyframes rotate-inverse-animation {
+    0% {
+        -webkit-transform: perspective(800px) rotateY(-180deg);
+        -moz-transform: perspective(800px) rotateY(-180deg);
+        -ms-transform: perspective(800px) rotateY(-180deg);
+        -o-transform: perspective(800px) rotateY(-180deg);
+        transform: perspective(800px) rotateY(-180deg);
+    }
+    70% {
+        -webkit-transform: perspective(800px) rotateY(20deg);
+        -moz-transform: perspective(800px) rotateY(20deg);
+        -ms-transform: perspective(800px) rotateY(20deg);
+        -o-transform: perspective(800px) rotateY(20deg);
+        transform: perspective(800px) rotateY(20deg);
+    }
+    100% {
+        -webkit-transform: perspective(800px) rotateY(0deg);
+        -moz-transform: perspective(800px) rotateY(0deg);
+        -ms-transform: perspective(800px) rotateY(0deg);
+        -o-transform: perspective(800px) rotateY(0deg);
+        transform: perspective(800px) rotateY(0deg);
+    }
+}
+
+input[type=image] {
+    cursor: default;
+}
+
+.float-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: none;
+    z-index: 10;
+    background-color: #ffffff;
+}
+
+div.page-width {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+div.footer-poster {
+    text-align: center;
+    background-color: #F5F5F5;
+}
+
+div.footer-poster > div {
+    height: 400px;
+    background: no-repeat center center;
+    overflow: hidden;
+}
+
+div.footer {
+    background-color: #262626;
+    color: #626262;
+    line-height: 80px;
+    height: 80px;
+    text-align: center;
+}
+
+input.form-control {
+    display: inline-block;
+}
+
+#springLoginForm div.title, #registerForm div.title, div.activate-remind div.title {
+    border-bottom: #E5E5E5 solid 1px;
+}
+
+#springLoginForm div.title > div, #registerForm div.title > div, div.activate-remind div.title > div {
+    position: absolute;
+}
+
+#springLoginForm div.title div.close-icon, #registerForm div.title div.close-icon,
+div.activate-remind div.title div.close-icon {
+    right: 14px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    background: url('images/register-image.png') no-repeat -212px -5px;
+}
+
+#springLoginForm div.title div.close-icon:hover, #registerForm div.title div.close-icon:hover,
+div.activate-remind div.title div.close-icon:hover {
+    background-position: -212px -31px;
+}
+
+#springLoginForm {
+    margin-left: -230px;
+    margin-top: -131px;
+}
+
+#springLoginForm div.title,
+#springLoginForm div.body {
+    width: 460px;
+    position: relative;
+}
+
+#springLoginForm div.title {
+    background: #ffffff url('images/login-title-back.png') repeat-x;
+    height: 53px;
+}
+
+#springLoginForm div.title div.image {
+    bottom: 0;
+    left: 22px;
+}
+
+#springLoginForm div.title div.text {
+    line-height: 40px;
+    font-size: 11pt;
+    left: 120px;
+    color: #7E8081;
+    bottom: 0;
+}
+
+#springLoginForm div.title div.close-icon {
+    top: 17px;
+}
+
+#springLoginForm div.body {
+    background-color: #ffffff;
+    height: 210px;
+    padding-top: 30px;
+}
+
+#springLoginForm div.body div.input {
+    padding: 7px 0 7px 60px;
+}
+
+#springLoginForm div.body div.input label {
+    margin-right: 12px;
+}
+
+#springLoginForm div.body div.input input {
+    width: 260px;
+}
+
+#springLoginForm div.body div.rememberLogin,
+#springLoginForm div.body div.submit {
+    padding-left: 102px;
+    margin-bottom: 7px;
+}
+
+#springLoginForm div.body div.rememberLogin span {
+    cursor: pointer;
+    margin-right: 112px;
+}
+
+#springLoginForm div.body div.rememberLogin span,
+#springLoginForm div.body div.rememberLogin a {
+    font-size: 9pt;
+    line-height: 20px;
+    vertical-align: top;
+}
+
+#registerForm div.body div.submit button,
+#springLoginForm div.body div.submit button {
+    background: url('images/login-button-back.png') repeat-x;
+    color: #ffffff;
+    height: 38px;
+    width: 260px;
+    border-radius: 5px;
+    font-size: 12pt;
+}
+
+#springLoginForm div.body div.submit a {
+    font-size: 9pt;
+}
+
+#springLoginForm div.body div.error-info {
+    color: #D90000;
+    font-size: 12pt;
+    position: absolute;
+    left: 150px;
+    top: 10px;
+    padding-left: 20px;
+    background: url('images/login-error.png') no-repeat left 25%;
+    display: none;
+}
+
+#registerForm {
+    margin-left: -265px;
+    margin-top: -250px;
+}
+
+#registerForm div.title,
+#registerForm div.body {
+    width: 530px;
+    position: relative;
+}
+
+#registerForm div.title {
+    background-color: #F8FBFB;
+    height: 44px;
+    color: #727373;
+    font-size: 12pt;
+}
+
+#registerForm div.title div.text {
+    left: 26px;
+    top: 10px;
+}
+
+#registerForm div.title div.close-icon {
+    top: 14px;
+}
+
+#registerForm div.body {
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+#registerForm div.body div.right {
+    padding-top: 34px;
+    border-left: 1px solid #E5E5E5;
+    height: 456px;
+    width: 386px;
+    float: right;
+}
+
+#registerForm div.body div.right div.input {
+    position: relative;
+}
+
+#registerForm div.body div.right div.input input[type=text],
+#registerForm div.body div.right div.input input[type=password] {
+    width: 260px;
+}
+
+#registerForm div.body div.right div.input span.validate {
+    padding: 1px 10px;
+}
+
+#registerForm div.body div.right div.input span.validate.success {
+    background: url("images/register-image.png") -187px -5px;
+}
+
+#registerForm div.body div.right div.input span.validate.fail {
+    background: url("images/register-image.png") -187px -31px;
+}
+
+#registerForm div.body div.right label {
+    width: 88px;
+    text-align: right;
+    font-weight: normal;
+    padding-right: 10px;
+}
+
+#registerForm div.body div.right div.comment {
+    padding-left: 92px;
+    font-size: 9pt;
+    line-height: 27px;
+    vertical-align: middle;
+    color: #9C9C9C;
+}
+
+#registerForm div.body div.right div.comment span.error {
+    color: #FFA457;
+}
+
+#registerForm div.body div.right div.submit {
+    margin-top: 16px;
+    padding-left: 92px;
+}
+
+#registerForm div.body div.right div.input.identity-code {
+    font-size: 9pt;
+}
+
+#registerForm div.body div.right div.input.identity-code input {
+    width: 110px;
+}
+
+#registerForm div.body div.right div.input.identity-code img {
+    height: 34px;
+    width: 98px;
+    margin-bottom: 3px;
+}
+
+#registerForm div.body div.right div.input.identity-code a {
+    margin-right: 14px;
+}
+
+#registerForm div.body div.email-icon {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 156px;
+    line-height: 52px;
+    vertical-align: middle;
+    color: #ffffff;
+    font-size: 12pt;
+    padding-left: 20px;
+    background: url('images/register-image.png') no-repeat 0 0;
+}
+
+#registerForm div.body div.email-icon span.icon {
+    width: 0;
+    background: url('images/register-image.png') no-repeat -158px -7px;
+    padding-left: 27px;
+}
+
+#registerForm div.body div.switch-login {
+    position: absolute;
+    left: 10px;
+    bottom: 36px;
+    color: #707070;
+}
+
+div.activate-remind {
+    margin-left: -204px;
+    margin-top: -119px;
+}
+
+div.activate-remind div.title,
+div.activate-remind div.body {
+    width: 408px;
+    position: relative;
+}
+
+div.activate-remind div.title {
+    height: 46px;
+    background-color: #F8FBFB;
+    color: #727373;
+    font-size: 12pt;
+}
+
+div.activate-remind div.title div.text {
+    left: 26px;
+    top: 12px;
+}
+
+div.activate-remind div.body {
+    height: 192px;
+    background-color: #ffffff;
+    color: #626363;
+    font-size: 9pt;
+    padding: 20px 0 0 38px;
+}
+
+div.activate-remind div.body > div {
+    line-height: 21px;
+}
+
+div.activate-remind div.body span.email,
+div.activate-remind div.body span.resend-success,
+div.activate-remind div.body span.resend-fail {
+    color: #FFA457;
+}
+
+div.activate-remind div.body span.no-reply {
+    font-weight: bold;
+}
+
+div.activate-remind div.title div.close-icon {
+    top: 15px;
+}
+
+div.activate-remind div.body span.resend-success,
+div.activate-remind div.body span.resend-fail {
+    margin-left: 15px;
+    display: none;
+}
