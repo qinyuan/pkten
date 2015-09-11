@@ -3,12 +3,12 @@ package com.qinyuan15.pkten.mvc.dao;
 import com.qinyuan.lib.database.hibernate.PersistObject;
 
 public class DrawnRecord extends PersistObject {
-    private Integer term;
+    private Integer phase;
     private String drawTime;
     private String result;
 
-    public Integer getTerm() {
-        return term;
+    public Integer getPhase() {
+        return phase;
     }
 
     public String getDrawTime() {
@@ -19,8 +19,8 @@ public class DrawnRecord extends PersistObject {
         return result;
     }
 
-    public void setTerm(Integer term) {
-        this.term = term;
+    public void setPhase(Integer phase) {
+        this.phase = phase;
     }
 
     public void setDrawTime(String drawTime) {
