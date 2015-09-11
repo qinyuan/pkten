@@ -1,6 +1,8 @@
 package com.qinyuan15.pkten.mvc.dao;
 
 import com.qinyuan.lib.database.hibernate.PersistObject;
+import com.qinyuan.lib.lang.DateUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class DrawnRecord extends PersistObject {
     private Integer phase;
@@ -12,7 +14,7 @@ public class DrawnRecord extends PersistObject {
     }
 
     public String getDrawTime() {
-        return drawTime;
+        return DateUtils.trimMilliSecond(drawTime);
     }
 
     public String getResult() {
@@ -29,5 +31,14 @@ public class DrawnRecord extends PersistObject {
 
     public void setResult(String result) {
         this.result = result;
+    }
+
+    /////////////////// derivative fields ///////////////////
+    public String[] getResultItems() {
+        if (StringUtils.isNotBlank(result)) {
+            return result.split(",");
+        } else {
+            return new String[0];
+        }
     }
 }

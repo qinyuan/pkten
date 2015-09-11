@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class BaiduResultParser extends AbstractResultParser {
+class BaiduResultParser extends AbstractResultParser {
     private final static Logger LOGGER = LoggerFactory.getLogger(BaiduResultParser.class);
 
     public BaiduResultParser(String html) {

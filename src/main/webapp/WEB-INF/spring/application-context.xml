@@ -10,5 +10,6 @@
 
     <context:property-placeholder location="classpath:global-config.properties"/>
     <import resource="application-security.xml"/>
+    <import resource="application-servlet.xml"/>
 
 </beans>

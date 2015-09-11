@@ -1,37 +1,34 @@
 package com.qinyuan15.pkten.mvc.dao;
 
-import com.qinyuan.lib.database.DatabaseInitializer;
-import org.junit.Before;
+import com.qinyuan.lib.database.test.DatabaseTestCase;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DrawnRecordDaoTest {
+public class DrawnRecordDaoTest extends DatabaseTestCase {
     private DrawnRecordDao dao = new DrawnRecordDao();
-
-    @Before
-    public void setUp() {
-        new DatabaseInitializer().init();
-    }
 
     @Test
     public void testGetInstances() {
-        assertThat(dao.getInstances()).hasSize(5);
+        assertThat(dao.getInstances()).hasSize(17);
     }
 
     @Test
     public void testAdd() {
-        dao.add(510785, "2015-09-10 18:22:30", "07,10,03,02,01,06,09,05,08,04");
-        assertThat(dao.getInstances()).hasSize(6);
-        assertThat(dao.hasPhase(510785));
+        assertThat(dao.getInstances()).hasSize(17);
+        assertThat(dao.hasPhase(510773)).isFalse();
 
-        dao.add(510785, "2015-09-10 18:22:30", "07,10,03,02,01,06,09,05,08,04");
-        assertThat(dao.getInstances()).hasSize(6);
+        dao.add(510773, "2015-09-10 17:22:30", "02,01,07,03,10,06,08,05,04,09");
+        assertThat(dao.getInstances()).hasSize(18);
+        assertThat(dao.hasPhase(510773)).isTrue();
+
+        dao.add(510773, "2015-09-10 17:22:30", "02,01,07,03,10,06,08,05,04,09");
+        assertThat(dao.getInstances()).hasSize(18);
     }
 
     @Test
     public void testHasTerm() {
         assertThat(dao.hasPhase(510786)).isTrue();
-        assertThat(dao.hasPhase(510784)).isFalse();
+        assertThat(dao.hasPhase(510773)).isFalse();
     }
 }

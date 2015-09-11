@@ -2,7 +2,7 @@ package com.qinyuan15.pkten.mvc.crawler;
 
 import com.qinyuan15.pkten.mvc.dao.DrawnRecord;
 
-public abstract class AbstractResultParser {
+public abstract class AbstractResultParser implements ResultParser {
     protected final String html;
 
     protected AbstractResultParser(String html) {
