@@ -12,6 +12,7 @@
     <meta name="keywords" content="<%=seoKeyword==null?"":seoKeyword.getWord()%>">
     <meta name="description" content="<%=seoKeyword==null?"":seoKeyword.getDescription()%>">
     --%>
+    <link rel="shortcut icon" href="http://static.lecai.com/img/favicon_bdcp.ico?v=2.9.131"/>
     <c:if test="${favicon != null}">
         <link rel="icon" href="${favicon}" type="image/x-icon"/>
         <link rel="shortcut icon" href="${favicon}" type="image/x-icon"/>

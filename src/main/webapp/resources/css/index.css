@@ -1,0 +1,101 @@
+
+div.main-body {
+    background-color: #e5e5e5;
+    padding: 20px;
+}
+
+div.main-body > div.page-width {
+    position: relative;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+div.main-body > div.page-width > div {
+    min-height: 600px;
+    height: 100%;
+}
+
+div.main-body div.left-page {
+    float: left;
+    background-color: #ffffff;
+    width: 560px;
+}
+
+div.main-body div.right-page {
+    float: right;
+    background-color: #E5EDE8;
+    width: 420px;
+}
+
+div.main-body div.left-page > div.title,
+div.main-body div.right-page > div.title {
+    font-weight: bold;
+    font-size: 14pt;
+    text-align: center;
+    margin: 0 10px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+div.main-body div.right-page > div.title {
+    color: #2e484c;
+}
+
+div.main-body div.right-page > div.title span.predict-phase {
+    font-style: italic;
+}
+
+div.main-body table {
+    margin: 20px 0 40px 25px;
+    font-size: 10pt;
+    border-collapse: collapse;
+}
+
+div.main-body table td, div.main-body table th {
+    text-align: center;
+    padding: 8px 16px;
+    border: 1px solid #ffffff;
+}
+
+div.main-body table th {
+    font-weight: bold;
+}
+
+div.main-body table tr.dark {
+    background-color: #EBEBED;
+}
+
+div.main-body div.left-page table td.result > span {
+    background: url("images/ball_bg.gif") no-repeat;
+    font-weight: bold;
+    color: #fff;
+    padding: 3px;
+}
+
+div.main-body div.right-page table span.ball {
+    padding: 3px 8px;
+    background: url("images/ball_bg.gif") no-repeat -108px 0;
+}
+
+div.main-body div.right-page table span.ball.recommend {
+    background-position: 1px 0;
+    padding: 3px 4px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* only for firefox */
+@-moz-document url-prefix() {
+    div.main-body table td, div.main-body table th {
+        padding: 6px 12px;
+    }
+    div.main-body div.left-page table td.result > span {
+        padding: 2px;
+    }
+    div.main-body div.right-page table span.ball {
+        padding: 2px 5px;
+    }
+    div.main-body div.right-page table span.ball.recommend {
+        padding: 2px 3px;
+    }
+}

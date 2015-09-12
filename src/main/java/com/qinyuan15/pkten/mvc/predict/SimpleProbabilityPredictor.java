@@ -16,11 +16,9 @@ public class SimpleProbabilityPredictor extends AbstractResultPredictor {
 
     @Override
     public ResultPrediction predict() {
-        ResultPrediction prediction = new ResultPrediction();
-
-        if (oldRecords == null) {
-            LOGGER.error("old records is null, unable to predict");
-            return prediction;
+        if (oldRecords == null || oldRecords.size() == 0) {
+            LOGGER.error("old records is null or empty, unable to predict, old records: {}", oldRecords);
+            return new ResultPrediction(-1);
         }
 
         Collections.sort(oldRecords, new Comparator<DrawnRecord>() {
@@ -30,6 +28,7 @@ public class SimpleProbabilityPredictor extends AbstractResultPredictor {
                 return o2.getDrawTime().compareTo(o1.getDrawTime());
             }
         });
+        ResultPrediction prediction = new ResultPrediction(oldRecords.get(0).getPhase() + 1);
 
         FrequencyCounter[] fCounters = buildFrequencyCounter();
         boolean first = true;

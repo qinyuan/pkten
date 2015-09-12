@@ -13,6 +13,11 @@ import java.util.List;
 public class DrawnRecordDao extends AbstractDao<DrawnRecord> {
     private final static Logger LOGGER = LoggerFactory.getLogger(DrawnRecordDao.class);
 
+    @Override
+    protected HibernateListBuilder getListBuilder() {
+        return super.getListBuilder().addOrder("drawTime", false); // order by draw time descend
+    }
+
     public Integer add(Integer phase, String drawnTime, String result) {
 
         DrawnRecord record = new DrawnRecord();

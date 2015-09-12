@@ -41,4 +41,12 @@ public class DrawnRecord extends PersistObject {
             return new String[0];
         }
     }
+
+    public String getDrawTimeDatePart() {
+        return drawTime == null ? null : drawTime.replaceAll("\\s.*", "");
+    }
+
+    public String getDrawTimeTimePart() {
+        return drawTime == null ? null : getDrawTime().replaceAll(".*\\s", "");
+    }
 }

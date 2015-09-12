@@ -1,14 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="inc-taglib.jsp" %>
-<c:if test="${!noFooter}">
-    <div class="footer-poster">
-        <div class="page-width" style="background-image: url('${footerPoster}');"></div>
-    </div>
-</c:if>
 <div class="footer">
-    <span>${footerText}</span>
+    <span>Copyright©2005-2015 <a href="index.html">pkten</a> 版权所有 未经许可 请勿转载</span>
 </div>
-<%@include file="inc-register-login-panel.jsp" %>
 </body>
 <q:js src="lib/jquery-1.11.3"/>
 <q:js src="lib/jquery.url"/>

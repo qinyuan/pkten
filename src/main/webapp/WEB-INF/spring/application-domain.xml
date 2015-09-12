@@ -4,11 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean class="com.qinyuan15.pkten.mvc.crawler.ResultDownloader">
+    <bean class="com.qinyuan15.pkten.mvc.crawler.ResultDownloader" init-method="init">
         <property name="crawlers">
             <list>
                 <bean class="com.qinyuan15.pkten.mvc.crawler.BaiduResultCrawler"/>
             </list>
         </property>
     </bean>
+    <bean class="com.qinyuan15.pkten.mvc.predict.SimpleProbabilityPredictor"/>
 </beans>
