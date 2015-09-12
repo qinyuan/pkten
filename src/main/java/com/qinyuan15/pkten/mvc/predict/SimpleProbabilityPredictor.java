@@ -5,8 +5,6 @@ import com.qinyuan15.pkten.mvc.dao.DrawnRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class SimpleProbabilityPredictor extends AbstractResultPredictor {
@@ -15,33 +13,26 @@ public class SimpleProbabilityPredictor extends AbstractResultPredictor {
     private final static int TOP_VALUE_COUNT = 7;
 
     @Override
-    public ResultPrediction predict() {
-        if (oldRecords == null || oldRecords.size() == 0) {
-            LOGGER.error("old records is null or empty, unable to predict, old records: {}", oldRecords);
+    public ResultPrediction predict(int phase) {
+        List<DrawnRecord> records = getReferredRecords(phase);
+        if (records == null || records.size() == 0) {
+            LOGGER.error("referred records is null or empty, unable to predict, records: {}", records);
             return new ResultPrediction(-1);
         }
 
-        Collections.sort(oldRecords, new Comparator<DrawnRecord>() {
-            @Override
-            public int compare(DrawnRecord o1, DrawnRecord o2) {
-                // order by draw time desc
-                return o2.getDrawTime().compareTo(o1.getDrawTime());
-            }
-        });
-        ResultPrediction prediction = new ResultPrediction(oldRecords.get(0).getPhase() + 1);
-
+        ResultPrediction prediction = new ResultPrediction(phase);
         FrequencyCounter[] fCounters = buildFrequencyCounter();
         boolean first = true;
-        for (DrawnRecord record : oldRecords) {
-            String[] resultItems = record.getResultItems();
+        for (DrawnRecord record : records) {
+            int[] resultItems = record.getResultItems();
             if (first) {
                 for (int i = 0; i < resultItems.length && i < BALL_COUNT; i++) {
-                    fCounters[i].addExclude(Integer.parseInt(resultItems[i]));
+                    fCounters[i].addExclude(resultItems[i]);
                 }
                 first = false;
             } else {
                 for (int i = 0; i < resultItems.length && i < BALL_COUNT; i++) {
-                    fCounters[i].add(Integer.parseInt(resultItems[i]));
+                    fCounters[i].add(resultItems[i]);
                 }
             }
         }

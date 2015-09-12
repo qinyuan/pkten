@@ -22,11 +22,7 @@ public class PredictionEvaluator {
 
     public PredictionEvaluator(ResultPrediction prediction, DrawnRecord realRecord) {
         this.prediction = prediction;
-        String[] items = realRecord.getResultItems();
-        realResults = new int[items.length];
-        for (int i = 0; i < realResults.length; i++) {
-            realResults[i] = Integer.parseInt(items[i]);
-        }
+        this.realResults = realRecord.getResultItems();
     }
 
     public int evaluate(int position) {
