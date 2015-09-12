@@ -10,6 +10,8 @@
                 <bean class="com.qinyuan15.pkten.mvc.crawler.BaiduResultCrawler"/>
             </list>
         </property>
+        <property name="startHour" value="9"/>
+        <property name="endHour" value="23"/>
     </bean>
     <bean class="com.qinyuan15.pkten.mvc.predict.SimpleProbabilityPredictor"/>
 </beans>

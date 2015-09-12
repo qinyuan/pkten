@@ -28,7 +28,7 @@
                         <td>${record.drawTimeTimePart}</td>
                         <td>${record.phase}</td>
                         <td class="result">
-                            <c:forEach var="resultItem" items="${record.resultItems}">
+                            <c:forEach var="resultItem" items="${record.resultStringItems}">
                                 <span class="ball">${resultItem}</span>
                             </c:forEach>
                         </td>

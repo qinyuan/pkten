@@ -35,12 +35,16 @@ public class DrawnRecord extends PersistObject {
 
     /////////////////// derivative fields ///////////////////
     public int[] getResultItems() {
-        String[] strings = StringUtils.isNotBlank(result) ? result.split(",") : new String[0];
+        String[] strings = getResultStringItems();
         int[] integers = new int[strings.length];
         for (int i = 0; i < integers.length; i++) {
             integers[i] = Integer.parseInt(strings[i]);
         }
         return integers;
+    }
+
+    public String[] getResultStringItems() {
+        return StringUtils.isNotBlank(result) ? result.split(",") : new String[0];
     }
 
     public String getDrawTimeDatePart() {

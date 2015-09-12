@@ -1,5 +1,6 @@
 package com.qinyuan15.pkten.mvc.crawler;
 
+import com.qinyuan.lib.lang.DateUtils;
 import com.qinyuan.lib.lang.concurrent.ThreadUtils;
 import com.qinyuan15.pkten.mvc.dao.DrawnRecord;
 import com.qinyuan15.pkten.mvc.dao.DrawnRecordDao;
@@ -14,6 +15,8 @@ public class ResultDownloader {
 
     private int interval = DEFAULT_INTERVAL;
     private boolean stop = false;
+    private int startHour = -1;
+    private int endHour = -1;
 
     private List<ResultCrawler> crawlers;
 
@@ -25,12 +28,32 @@ public class ResultDownloader {
         this.interval = interval;
     }
 
+    public void setStartHour(int startHour) {
+        this.startHour = startHour;
+    }
+
+    public void setEndHour(int endHour) {
+        this.endHour = endHour;
+    }
+
     public void stop() {
         stop = true;
     }
 
     public void init() {
         new DownloadThread().start();
+    }
+
+    private boolean inCrawlTime() {
+        if (startHour < 0 || endHour < 0) {
+            return true;
+        }
+        int currentHour = DateUtils.currentHour();
+        if (startHour <= endHour) {
+            return currentHour >= startHour && currentHour <= endHour;
+        } else {
+            return currentHour >= startHour || currentHour <= endHour;
+        }
     }
 
     private class DownloadThread extends Thread {
@@ -40,6 +63,10 @@ public class ResultDownloader {
                 ThreadUtils.sleep(interval);
 
                 if (crawlers == null) {
+                    LOGGER.warn("no crawlers, skip crawling");
+                    continue;
+                } else if (!inCrawlTime()) {
+                    LOGGER.info("no in crawl time, skip crawling");
                     continue;
                 }
 
