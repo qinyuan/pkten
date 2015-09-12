@@ -25,7 +25,7 @@ public class PredictionEvaluator {
         this.realResults = realRecord.getResultItems();
     }
 
-    public int evaluate(int position) {
+    public Evaluation evaluate(int position) {
         if (position > realResults.length) {
             LOGGER.error("Invalid position: {}", position);
         }
@@ -34,9 +34,41 @@ public class PredictionEvaluator {
         List<Integer> predictValues = prediction.getAvailableValues(position);
 
         int revenue = predictValues.size() * -1 * COST;
+        boolean win = false;
         if (predictValues.contains(result)) {
             revenue += WIN_GAIN;
+            win = true;
         }
-        return revenue;
+        return new Evaluation(revenue, predictValues, result, win);
+    }
+
+    public static class Evaluation {
+        private final int revenue;
+        private final List<Integer> predictValues;
+        private final int realValue;
+        private final boolean win;
+
+        public Evaluation(int revenue, List<Integer> predictValues, int realValue, boolean win) {
+            this.revenue = revenue;
+            this.predictValues = predictValues;
+            this.realValue = realValue;
+            this.win = win;
+        }
+
+        public int getRevenue() {
+            return revenue;
+        }
+
+        public List<Integer> getPredictValues() {
+            return predictValues;
+        }
+
+        public int getRealValue() {
+            return realValue;
+        }
+
+        public boolean isWin() {
+            return win;
+        }
     }
 }
