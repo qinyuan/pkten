@@ -10,7 +10,7 @@
     <div class="page-width">
         <div class="left-page shadow">
             <div class="title">
-                近期开奖历史
+                近期开奖结果
             </div>
             <table>
                 <thead>
@@ -29,7 +29,7 @@
                         <td>${record.phase}</td>
                         <td class="result">
                             <c:forEach var="resultItem" items="${record.resultItems}">
-                                <span>${resultItem}</span>
+                                <span class="ball">${resultItem}</span>
                             </c:forEach>
                         </td>
                     </tr>
