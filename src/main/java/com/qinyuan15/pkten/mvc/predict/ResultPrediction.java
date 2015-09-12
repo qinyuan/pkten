@@ -1,5 +1,6 @@
 package com.qinyuan15.pkten.mvc.predict;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -21,7 +22,8 @@ public class ResultPrediction {
     }
 
     public List<Integer> getAvailableValues(int position) {
-        return positionalPredictions.get(position);
+        List<Integer> values = positionalPredictions.get(position);
+        return values == null ? new ArrayList<Integer>() : values;
     }
 
     public Map<Integer, List<Integer>> getAllAvailableValues() {
