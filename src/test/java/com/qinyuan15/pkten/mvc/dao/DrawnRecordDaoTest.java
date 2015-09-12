@@ -3,10 +3,23 @@ package com.qinyuan15.pkten.mvc.dao;
 import com.qinyuan.lib.database.test.DatabaseTestCase;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DrawnRecordDaoTest extends DatabaseTestCase {
     private DrawnRecordDao dao = new DrawnRecordDao();
+
+    @Test
+    public void testSetMaxPhase() {
+        List<DrawnRecord> records = DrawnRecordDao.factory().getInstances();
+        assertThat(records).hasSize(17);
+        assertThat(records.get(0).getPhase()).isEqualTo(510790);
+
+        records = DrawnRecordDao.factory().setMaxPhase(510788).getInstances();
+        assertThat(records).hasSize(15);
+        assertThat(records.get(0).getPhase()).isEqualTo(510788);
+    }
 
     @Test
     public void testGetInstances() {
