@@ -47,6 +47,7 @@ public class IndexController extends BaseController {
         evaluator.setEvaluateSize(SHOW_SIZE);
         evaluator.setReferenceRecordSize(PREDICT_REFER_SIZE);
         evaluator.setRecords(records);
+        setAttribute("evaluatePosition", evaluatePosition);
         addJavaScriptData("evaluation", evaluator.evaluate(evaluatePosition));
 
         addCssAndJs("index");

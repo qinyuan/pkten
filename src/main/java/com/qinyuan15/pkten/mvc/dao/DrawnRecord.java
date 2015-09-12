@@ -47,6 +47,14 @@ public class DrawnRecord extends PersistObject {
         return StringUtils.isNotBlank(result) ? result.split(",") : new String[0];
     }
 
+    /**
+     * @return short format time such as '15-12-12 12:12:12'
+     */
+    public String getShortDrawTime() {
+        String time = getDrawTime();
+        return time != null && time.length() > 2 ? time.substring(2) : null;
+    }
+
     public String getDrawTimeDatePart() {
         return drawTime == null ? null : drawTime.replaceAll("\\s.*", "");
     }

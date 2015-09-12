@@ -23,4 +23,15 @@
             addRecommendNumber(position, availableValues[i]);
         }
     }
+
+    $('div.main-body div.left-page div.position input[type=radio]').click(function () {
+        location.href = JSUtils.updateUrlParam('evaluatePosition', $(this).val());
+    }).each(function () {
+        if (this.checked) {
+            var evaluatePosition = $(this).val();
+            $('div.main-body div.left-page tbody tr').each(function () {
+                $(this).find('span').eq(evaluatePosition - 1).addClass('evaluated');
+            });
+        }
+    });
 })();

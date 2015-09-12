@@ -18,13 +18,13 @@ div.main-body > div.page-width > div {
 div.main-body div.left-page {
     float: left;
     background-color: #ffffff;
-    width: 560px;
+    width: 690px;
 }
 
 div.main-body div.right-page {
     float: right;
     background-color: #E5EDE8;
-    width: 420px;
+    width: 300px;
 }
 
 div.main-body div.left-page > div.title,
@@ -41,20 +41,44 @@ div.main-body div.right-page > div.title {
     color: #2e484c;
 }
 
-div.main-body div.right-page > div.title span.predict-phase {
+div.main-body div.right-page > div.phase span.predict-phase {
     font-style: italic;
+    font-weight: bold;
+}
+
+div.main-body div.left-page div.position, div.main-body div.right-page div.phase {
+    margin: 20px 10px;
+}
+
+div.main-body div.left-page div.position > span {
+    margin-right: 5px;
 }
 
 div.main-body table {
-    margin: 20px 0 40px 25px;
-    font-size: 10pt;
+    margin-left: 10px;
+    margin-bottom: 40px;
+    font-size: 9pt;
     border-collapse: collapse;
 }
 
 div.main-body table td, div.main-body table th {
     text-align: center;
-    padding: 8px 12px;
+    padding: 5px;
     border: 1px solid #ffffff;
+}
+
+div.main-body div.left-page table td.result {
+    padding: 0 5px;
+}
+
+div.main-body div.left-page table td.result span {
+    padding: 5px 0;
+    background-position: 0 5px;
+    height: 31px;
+}
+
+div.main-body div.left-page table td.result span.evaluated {
+    background-color: #FFFF33;
 }
 
 div.main-body table th {
@@ -72,21 +96,23 @@ div.main-body table span.ball {
     width: 20px;
     color: #fff;
     font-weight: bold;
-    background: url("images/ball_bg.gif") no-repeat;
+    margin: 0 1px;
+    background: url("images/ball_bg.png") no-repeat;
 }
 
 div.main-body div.right-page table span.ball {
     width: 21px;
-    background-position: -108px 0;
+    color: #103C10;
+    background-position: -88px 0;
 }
 
 div.main-body div.right-page table span.ball.recommend {
-    background-position: 0 0;
+    background-position: -66px 0;
 }
 
 /* only for firefox */
 @-moz-document url-prefix() {
-    div.main-body table td, div.main-body table th {
-        padding: 6px 12px;
+    div.main-body div.left-page table td, div.main-body div.left-page table th {
+        padding: 5px 2px;
     }
 }

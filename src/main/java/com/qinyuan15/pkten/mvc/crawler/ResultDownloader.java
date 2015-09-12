@@ -66,7 +66,7 @@ public class ResultDownloader {
                     LOGGER.warn("no crawlers, skip crawling");
                     continue;
                 } else if (!inCrawlTime()) {
-                    LOGGER.info("no in crawl time, skip crawling");
+                    LOGGER.info("not in crawl time, skip crawling");
                     continue;
                 }
 
