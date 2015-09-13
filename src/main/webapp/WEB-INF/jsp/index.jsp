@@ -24,17 +24,25 @@
                     <th>开奖时间</th>
                     <th>期号</th>
                     <th>开奖号码</th>
+                    <th>预测买号<img title="通过本算法预测的买号" src="resources/css/images/help.png"/></th>
+                    <th>状态</th>
+                    <th>营利</th>
+                    <th>总计</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach var="record" items="${records}" varStatus="status">
                     <tr<c:if test="${status.index % 2 == 1}"> class="dark"</c:if>>
                         <td>${record.shortDrawTime}</td>
-                        <td>${record.phase}</td>
+                        <td class="phase">${record.phase}</td>
                         <td class="result">
                             <c:forEach var="resultItem" items="${record.resultStringItems}"><span
                                     class="ball">${resultItem}</span></c:forEach>
                         </td>
+                        <%@include file="index-predict-ball.jsp" %>
+                        <td class="status"></td>
+                        <td class="revenue"></td>
+                        <td class="sum"></td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -58,7 +66,7 @@
                 <c:forEach var="title" items="${positions}">
                     <tr>
                         <td>${title}</td>
-                        <td><c:forEach var="i" begin="1" end="10"><span class="ball">&nbsp;</span></c:forEach></td>
+                        <%@include file="index-predict-ball.jsp" %>
                     </tr>
                 </c:forEach>
                 </tbody>

@@ -15,11 +15,22 @@ public class PredictionEvaluatorTest {
         record.setResult("04,01,01,01,01,01,01,01,01,01");
 
         PredictionEvaluator evaluator = new PredictionEvaluator(prediction, record);
-        assertThat(evaluator.evaluate(1)).isEqualTo(-300);
-        assertThat(evaluator.evaluate(2)).isEqualTo(0);
+
+        PredictionEvaluator.Evaluation evaluation = evaluator.evaluate(1);
+        assertThat(evaluation.getRevenue()).isEqualTo(-300);
+        assertThat(evaluation.getPredictValues()).containsExactly(1, 2, 3);
+        assertThat(evaluation.getRealValue()).isEqualTo(4);
+
+        evaluation = evaluator.evaluate(2);
+        assertThat(evaluation.getRevenue()).isEqualTo(0);
+        assertThat(evaluation.getPredictValues()).isEmpty();
+        assertThat(evaluation.getRealValue()).isEqualTo(1);
 
         record.setResult("02,01,01,01,01,01,01,01,01,01");
         evaluator = new PredictionEvaluator(prediction, record);
-        assertThat(evaluator.evaluate(1)).isEqualTo(700);
+        evaluation = evaluator.evaluate(1);
+        assertThat(evaluation.getRevenue()).isEqualTo(700);
+        assertThat(evaluation.getPredictValues()).containsExactly(1, 2, 3);
+        assertThat(evaluation.getRealValue()).isEqualTo(2);
     }
 }

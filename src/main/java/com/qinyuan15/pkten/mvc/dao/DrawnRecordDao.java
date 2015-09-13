@@ -80,4 +80,9 @@ public class DrawnRecordDao extends AbstractDao<DrawnRecord> {
         return new HibernateListBuilder().addEqualFilter("phase", phase)
                 .count(DrawnRecord.class) > 0;
     }
+
+    public Integer getMaxPhase() {
+        String hql = "SELECT MAX(phase) FROM " + getPersistClass().getSimpleName();
+        return (Integer) new HibernateListBuilder().getFirstItem(hql);
+    }
 }

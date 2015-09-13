@@ -44,4 +44,9 @@ public class DrawnRecordDaoTest extends DatabaseTestCase {
         assertThat(dao.hasPhase(510786)).isTrue();
         assertThat(dao.hasPhase(510773)).isFalse();
     }
+
+    @Test
+    public void testGetMaxPhase() {
+        assertThat(dao.getMaxPhase()).isEqualTo(510790);
+    }
 }

@@ -18,13 +18,13 @@ div.main-body > div.page-width > div {
 div.main-body div.left-page {
     float: left;
     background-color: #ffffff;
-    width: 690px;
+    width: 715px;
 }
 
 div.main-body div.right-page {
     float: right;
     background-color: #E5EDE8;
-    width: 300px;
+    width: 275px;
 }
 
 div.main-body div.left-page > div.title,
@@ -48,6 +48,8 @@ div.main-body div.right-page > div.phase span.predict-phase {
 
 div.main-body div.left-page div.position, div.main-body div.right-page div.phase {
     margin: 20px 10px;
+    line-height: 23px;
+    height: 23px;
 }
 
 div.main-body div.left-page div.position > span {
@@ -65,6 +67,7 @@ div.main-body table td, div.main-body table th {
     text-align: center;
     padding: 5px;
     border: 1px solid #ffffff;
+    vertical-align: middle;
 }
 
 div.main-body div.left-page table td.result {
@@ -81,6 +84,16 @@ div.main-body div.left-page table td.result span.evaluated {
     background-color: #FFFF33;
 }
 
+div.main-body div.left-page table td.win {
+    font-weight: bold;
+    color: #ff1022;
+}
+
+div.main-body div.left-page table td.lose {
+    font-weight: bold;
+    color: #339900;
+}
+
 div.main-body table th {
     font-weight: bold;
 }
@@ -91,28 +104,29 @@ div.main-body table tr.dark {
 
 div.main-body table span.ball {
     display: inline-block;
-    height: 21px;
-    line-height: 21px;
-    width: 20px;
+    height: 19px;
+    line-height: 18px;
+    width: 18px;
     color: #fff;
-    font-weight: bold;
-    margin: 0 1px;
-    background: url("images/ball_bg.png") no-repeat;
+    font-weight: 600;
+    font-size: 9pt;
+    margin-right: 1px;
+    background: url("images/ball_bg_sm.png") no-repeat;
 }
 
-div.main-body div.right-page table span.ball {
-    width: 21px;
+div.main-body table span.ball.predict {
+    width: 19px;
+    background-position: -77px 0;
+}
+
+div.main-body table span.ball.predict.recommend {
+    background-position: -57px 0;
     color: #103C10;
-    background-position: -88px 0;
-}
-
-div.main-body div.right-page table span.ball.recommend {
-    background-position: -66px 0;
 }
 
 /* only for firefox */
 @-moz-document url-prefix() {
-    div.main-body div.left-page table td, div.main-body div.left-page table th {
+    /*div.main-body div.left-page table td, div.main-body div.left-page table th {
         padding: 5px 2px;
-    }
+    }*/
 }
