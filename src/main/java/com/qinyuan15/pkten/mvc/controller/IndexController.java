@@ -22,7 +22,7 @@ public class IndexController extends BaseController {
 
     private final static String TITLE = "北京赛车-PK10 下期预测";
     private final static int SHOW_SIZE = 50;
-    private final static int PREDICT_REFER_SIZE = 30;
+    private final static int PREDICT_REFER_SIZE = 15;
 
     @Autowired
     private ResultPredictor predictor;

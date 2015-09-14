@@ -14,14 +14,15 @@ public class SimpleProbabilityPredictor extends AbstractResultPredictor {
 
     @Override
     public ResultPrediction predict(int phase) {
+        // validate drawn records
         List<DrawnRecord> records = getReferredRecords(phase);
         if (records == null || records.size() == 0) {
             LOGGER.error("referred records is null or empty, unable to predict, records: {}", records);
             return new ResultPrediction(-1);
         }
 
-        ResultPrediction prediction = new ResultPrediction(phase);
-        FrequencyCounter[] fCounters = buildFrequencyCounter();
+        // count the frequently appear numbers
+        FrequencyCounter[] fCounters = buildFrequencyCounters();
         boolean first = true;
         for (DrawnRecord record : records) {
             int[] resultItems = record.getResultItems();
@@ -37,6 +38,8 @@ public class SimpleProbabilityPredictor extends AbstractResultPredictor {
             }
         }
 
+        // create result
+        ResultPrediction prediction = new ResultPrediction(phase);
         for (int i = 0; i < BALL_COUNT; i++) {
             prediction.addPositionalPrediction(i + 1, getFrequentlyAppearValues(fCounters[i]));
         }
@@ -55,7 +58,7 @@ public class SimpleProbabilityPredictor extends AbstractResultPredictor {
         return values;
     }
 
-    private FrequencyCounter[] buildFrequencyCounter() {
+    private FrequencyCounter[] buildFrequencyCounters() {
         FrequencyCounter[] fCounters = new FrequencyCounter[BALL_COUNT];
         for (int i = 0; i < fCounters.length; i++) {
             fCounters[i] = new FrequencyCounter();
