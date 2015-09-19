@@ -1,13 +1,13 @@
 package com.qinyuan15.pkten.mvc.controller;
 
-import com.qinyuan.lib.database.hibernate.HibernateUtils;
 import com.qinyuan.lib.mvc.controller.BaseController;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class LoginController extends BaseController {
 
-    //@RequestMapping("/login")
+    @RequestMapping("/login")
     public String index() {
         setTitle("用户登录");
         addCssAndJs("login");

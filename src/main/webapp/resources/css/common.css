@@ -238,16 +238,37 @@ div.footer {
     text-align: center;
 }
 
+body {
+    background-color: #828282;
+}
+
 div.footer a {
     color: #626262;
 }
 
 div.main-body {
-    min-height: 700px;
+    min-height: 600px;
+    background-color: #e5e5e5;
+    padding: 20px;
+}
+
+div.main-body > div.page-width {
+    position: relative;
+    min-height: 600px;
+    overflow: hidden;
 }
 
 input.form-control {
     display: inline-block;
+}
+
+div.error-info {
+    position: absolute;
+    left: 0;
+    bottom: 35px;
+    color: #ff0000;
+    width: 100%;
+    text-align: center;
 }
 
 div.header {
@@ -261,4 +282,58 @@ div.header div.title {
     font-size: 18pt;
     font-style: italic;
     line-height: 70px;
+}
+
+div.header div.user {
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 70px;
+}
+
+div.header div.user a {
+    color: #FFFF99;
+}
+
+#passwordEditForm {
+    margin-left: -200px;
+    width: 400px;
+}
+
+#passwordEditForm > div {
+    padding: 10px 30px;
+}
+
+#passwordEditForm div.title {
+    background-color: #eeeeee;
+    font-size: 14pt;
+    text-align: center;
+    border-bottom: 1px solid #cccccc;
+}
+
+#passwordEditForm div.input {
+    margin: 10px 0;
+}
+
+#passwordEditForm div.input label {
+    width: 80px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+#passwordEditForm div.submit {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#passwordEditForm div.submit button {
+    margin: 0 5px;
+}
+
+#passwordEditForm div.input input {
+    width: 200px;
+}
+
+#passwordEditForm div.error-info {
+    bottom: 25px;
 }

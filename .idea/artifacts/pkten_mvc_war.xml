@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="pkten-mvc:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="pkten-mvc-1.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="pkten-mvc:war exploded" />
-    </root>
-  </artifact>
-</component>

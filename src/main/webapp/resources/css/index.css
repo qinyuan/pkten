@@ -1,15 +1,4 @@
 
-div.main-body {
-    background-color: #e5e5e5;
-    padding: 20px;
-}
-
-div.main-body > div.page-width {
-    position: relative;
-    min-height: 600px;
-    overflow: hidden;
-}
-
 div.main-body > div.page-width > div {
     min-height: 600px;
     height: 100%;

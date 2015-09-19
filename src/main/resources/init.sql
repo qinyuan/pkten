@@ -25,3 +25,14 @@ insert into drawn_record values
     (16, 510775, '2015-09-10 17:32:30', '10,08,03,09,04,06,02,07,05,01'),
     (17, 510774, '2015-09-10 17:27:30', '06,10,07,04,08,02,09,01,03,05');
 
+
+create table user (
+    id int primary key auto_increment,
+    username char(50) UNIQUE NOT NULL,
+    password char(50) NOT NULL,
+    role char(100) DEFAULT NULL,
+    expire_time datetime
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+insert into user values
+    (1, 'hello', 'world', 'role_normal', '2015-01-02 12:13:14');
