@@ -34,15 +34,26 @@
 <div class="header">
     <div class="page-width">
         <div class="title">北京赛车-PK10 下期预测</div>
+        <security:authorize ifAnyGranted="ROLE_ADMIN">
+            <div class="control-panel">
+                <a href="javascript:void(0)" id="addUserLink">添加用户</a>
+                <span class="split"></span>
+                <a href="javascript:void(0)" id="manageUserLink">管理用户</a>
+            </div>
+        </security:authorize>
+        <security:authorize ifAnyGranted="ROLE_NORMAL">
+            <c:if test="${expireTime != null}">
+                <div class="expire-time">您的账号有有效期至：${expireTime}</div>
+            </c:if>
+        </security:authorize>
         <security:authorize ifAnyGranted="ROLE_ADMIN,ROLE_NORMAL">
             <div class="user">
-                [qinyuan]
+                [<security:authentication property="name"/>]
                 <a href="javascript:void(0)" id="changePassword">修改密码</a>
                 <a href="j_spring_security_logout">退出</a>
             </div>
         </security:authorize>
     </div>
-
 </div>
 <div class="main-body">
     <div class="page-width">

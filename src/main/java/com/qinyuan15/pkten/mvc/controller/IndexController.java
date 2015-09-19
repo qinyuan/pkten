@@ -63,6 +63,7 @@ public class IndexController extends BaseController {
         addJavaScriptData("evaluation", evaluator.evaluate(evaluatePosition));
 
         addCssAndJs("index");
+        ControllerUtils.setCommonParameters(this);
         return "index";
     }
 
@@ -74,7 +75,7 @@ public class IndexController extends BaseController {
         return toJson(map);
     }
 
-    @RequestMapping("/index-change-password")
+    @RequestMapping("/index-change-password.json")
     @ResponseBody
     public String changePassword(@RequestParam(value = "oldPassword", required = true) String oldPassword,
                                  @RequestParam(value = "newPassword", required = true) String newPassword) {

@@ -16,6 +16,7 @@ public class LoginController extends BaseController {
             addJs("auto-login");
         }*/
 
+        ControllerUtils.setCommonParameters(this);
         return "login";
     }
 }

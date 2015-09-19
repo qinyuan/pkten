@@ -27,16 +27,20 @@ var angularUtils = {
             this.showErrorInfo('');
         },
         doSubmit: function () {
+            var self = this;
             $.post('index-change-password.json', this.$floatPanel.serialize(), function (data) {
                 if (data.success) {
                     location.reload();
                 } else {
-                    this.showErrorInfo(data.detail);
+                    self.showErrorInfo(data.detail);
                 }
             });
         },
         showErrorInfo: function (text) {
-            this.$errorInfo.html(text).twinkle(4);
+            this.$errorInfo.html(text);
+            if (text) {
+                this.$errorInfo.twinkle(4);
+            }
         },
         validateOldPassword: function () {
             var oldPassword = this.$oldPassword.val();
@@ -44,6 +48,7 @@ var angularUtils = {
                 this.showErrorInfo('原密码不能为空');
                 return false;
             }
+            this.showErrorInfo('');
             return true;
         },
         validateNewPassword: function () {
@@ -58,6 +63,7 @@ var angularUtils = {
                 this.showErrorInfo('新密码至少包含6个字符');
                 return false;
             }
+            this.showErrorInfo('');
             return true;
         },
         validateNewPassword2: function () {
@@ -69,6 +75,7 @@ var angularUtils = {
                 this.showErrorInfo('两次输入的新密码不一致');
                 return false;
             }
+            this.showErrorInfo('');
             return true;
         },
         validateInput: function () {
@@ -86,17 +93,19 @@ var angularUtils = {
             }
         },
         postInit: function () {
+            var self = this;
             this.$errorInfo = this.$floatPanel.find('div.error-info');
             this.$oldPassword = setBlurEven(this.$floatPanel.getInputByName('oldPassword'), this.validateOldPassword);
             this.$newPassword = setBlurEven(this.$floatPanel.getInputByName('newPassword'), this.validateNewPassword);
             this.$newPassword2 = setBlurEven(this.$floatPanel.getInputByName('newPassword2'), this.validateNewPassword2);
-
-            var self = this;
+            this.$floatPanel.find('div.close-icon').click(function () {
+                self.get$CancelButton().trigger('click');
+            });
 
             function setBlurEven($target, func) {
                 $target.blur(function () {
                     setTimeout(function () {
-                        func.call(self);
+                        //func.call(self);
                     }, 300);
                 });
                 return $target;
@@ -106,5 +115,4 @@ var angularUtils = {
     $('#changePassword').click(function () {
         password.show();
     });
-})
-();
+})();

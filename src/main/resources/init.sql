@@ -35,4 +35,5 @@ create table user (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 insert into user values
-    (1, 'hello', 'world', 'role_normal', '2015-01-02 12:13:14');
+    (1, 'hello', 'world', 'ROLE_NORMAL', '2015-01-02 12:13:14'),
+    (2, 'admin', 'world', 'ROLE_ADMIN', '2015-01-02 12:13:14');

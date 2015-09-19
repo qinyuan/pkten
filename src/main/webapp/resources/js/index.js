@@ -61,13 +61,21 @@
     });
 })();
 (function () {
+    // TODO load data by ajax
     // reload page with new data downloaded
     setInterval(function () {
         $.post('max-phase.json', {}, function (data) {
             var maxPhaseInPage = parseInt($('div.main-body div.left-page table tbody tr td.phase').eq(0).text());
             if (parseInt(data['phase']) > maxPhaseInPage) {
-                location.reload();
+                if (!hasVisibleFloatPanel()) {
+                    location.reload();
+                }
             }
         });
     }, 5000); // reload each five seconds
+
+    function hasVisibleFloatPanel() {
+        var $tb = $('#transparentBackground');
+        return $tb.size() > 0 && $tb.css('display') != 'none';
+    }
 })();

@@ -271,6 +271,20 @@ div.error-info {
     text-align: center;
 }
 
+.float-panel div.title div.close-icon {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    right: 10px;
+    top: 10px;
+    background: url("images/close.png") no-repeat;
+    cursor: pointer;
+}
+
+.float-panel div.title div.close-icon:hover {
+    background-position: 0 -26px;
+}
+
 div.header {
     width: 100%;
     height: 70px;
@@ -284,15 +298,31 @@ div.header div.title {
     line-height: 70px;
 }
 
-div.header div.user {
+div.header div.user, div.header div.control-panel, div.header div.expire-time {
     position: absolute;
-    right: 0;
     top: 0;
     line-height: 70px;
 }
 
-div.header div.user a {
+div.header div.user {
+    right: 0;
+}
+
+div.header div.control-panel, div.header div.expire-time {
+    right: 250px;
+}
+
+div.header div.user a, div.header div.control-panel a {
     color: #FFFF99;
+}
+
+div.header div.control-panel a {
+    font-size: 12pt;
+    padding: 0 15px;
+}
+
+div.header div.control-panel span.split {
+    border: 1px solid #ffffff;
 }
 
 #passwordEditForm {
@@ -300,40 +330,71 @@ div.header div.user a {
     width: 400px;
 }
 
-#passwordEditForm > div {
+#addUserForm {
+    margin-left: -210px;
+    width: 420px;
+}
+
+#manageUserPanel {
+    margin-left: -270px;
+    width: 540px;
+}
+
+#manageUserPanel col.username, #manageUserPanel col.password, #manageUserPanel col.expire-time {
+    width: 150px;
+}
+
+#manageUserPanel td {
+    text-align: center;
+}
+
+#manageUserPanel div.to-add-panel {
+    width: 100%;
+    text-align: right;
+    margin: 10px 35px;
+    padding: 0 25px;
+}
+
+#addUserForm div.to-manage-panel {
+    position: absolute;
+    right: 25px;
+    bottom: 10px;
+}
+
+#passwordEditForm > div, #addUserForm > div, #manageUserPanel > div {
     padding: 10px 30px;
 }
 
-#passwordEditForm div.title {
+#passwordEditForm div.title, #addUserForm div.title, #manageUserPanel div.title {
     background-color: #eeeeee;
     font-size: 14pt;
     text-align: center;
     border-bottom: 1px solid #cccccc;
 }
 
-#passwordEditForm div.input {
+#passwordEditForm div.input, #addUserForm div.input {
     margin: 10px 0;
 }
 
-#passwordEditForm div.input label {
+#passwordEditForm div.input label, #addUserForm div.input label {
     width: 80px;
     text-align: right;
     margin-right: 10px;
 }
 
-#passwordEditForm div.submit {
+#passwordEditForm div.submit, #addUserForm div.submit {
     text-align: center;
     margin-bottom: 40px;
 }
 
-#passwordEditForm div.submit button {
+#passwordEditForm div.submit button, #addUserForm div.submit button {
     margin: 0 5px;
 }
 
-#passwordEditForm div.input input {
+#passwordEditForm div.input input, #addUserForm div.input input {
     width: 200px;
 }
 
-#passwordEditForm div.error-info {
+#passwordEditForm div.error-info, #addUserForm div.error-info {
     bottom: 25px;
 }

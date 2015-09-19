@@ -4,6 +4,8 @@ import com.qinyuan.lib.database.test.DatabaseTestCase;
 import com.qinyuan.lib.lang.DateUtils;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserDaoTest extends DatabaseTestCase {
@@ -38,5 +40,25 @@ public class UserDaoTest extends DatabaseTestCase {
         assertThat(user.getExpireTime()).isEqualTo("2015-01-02 12:13:14");
 
         assertThat(userDao.getInstanceByName("world")).isNull();
+    }
+
+    @Test
+    public void testDeleteNormal() {
+        assertThat(userDao.hasUsername("hello")).isTrue();
+        userDao.deleteNormal(1);
+        assertThat(userDao.hasUsername("hello")).isFalse();
+
+        assertThat(userDao.hasUsername("admin")).isTrue();
+        userDao.deleteNormal(userDao.getIdByName("admin"));
+        assertThat(userDao.hasUsername("admin")).isTrue();
+    }
+
+    @Test
+    public void testGetNormalInstances() {
+        assertThat(userDao.getInstances()).hasSize(2);
+        List<User> users = userDao.getNormalInstances();
+        assertThat(users).hasSize(1);
+        assertThat(users.get(0).getId()).isEqualTo(1);
+        assertThat(users.get(0).getUsername()).isEqualTo("hello");
     }
 }
