@@ -1,7 +1,7 @@
 package com.qinyuan15.pkten.mvc.crawler;
 
-import com.qinyuan.lib.lang.DateUtils;
 import com.qinyuan.lib.lang.concurrent.ThreadUtils;
+import com.qinyuan.lib.lang.time.DateUtils;
 import com.qinyuan15.pkten.mvc.dao.DrawnRecord;
 import com.qinyuan15.pkten.mvc.dao.DrawnRecordDao;
 import org.slf4j.Logger;
@@ -60,17 +60,17 @@ public class ResultDownloader {
         @Override
         public void run() {
             while (true) {
-                ThreadUtils.sleep(interval);
-
-                if (crawlers == null) {
-                    LOGGER.warn("no crawlers, skip crawling");
-                    continue;
-                } else if (!inCrawlTime()) {
-                    LOGGER.info("not in crawl time, skip crawling");
-                    continue;
-                }
-
                 try {
+                    ThreadUtils.sleep(interval);
+
+                    if (crawlers == null) {
+                        LOGGER.warn("no crawlers, skip crawling");
+                        continue;
+                    } else if (!inCrawlTime()) {
+                        LOGGER.info("not in crawl time, skip crawling");
+                        continue;
+                    }
+
                     for (ResultCrawler crawler : crawlers) {
                         List<DrawnRecord> records = crawler.crawl();
                         if (stop) {

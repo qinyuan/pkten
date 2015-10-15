@@ -1,7 +1,7 @@
 package com.qinyuan15.pkten.mvc.dao;
 
 import com.qinyuan.lib.database.test.DatabaseTestCase;
-import com.qinyuan.lib.lang.DateUtils;
+import com.qinyuan.lib.lang.time.DateUtils;
 import org.junit.Test;
 
 import java.util.List;
@@ -36,7 +36,7 @@ public class UserDaoTest extends DatabaseTestCase {
         assertThat(user.getId()).isEqualTo(1);
         assertThat(user.getUsername()).isEqualTo("hello");
         assertThat(user.getPassword()).isEqualTo("world");
-        assertThat(user.getRole()).isEqualTo("role_normal");
+        assertThat(user.getRole()).isEqualTo("ROLE_NORMAL");
         assertThat(user.getExpireTime()).isEqualTo("2015-01-02 12:13:14");
 
         assertThat(userDao.getInstanceByName("world")).isNull();

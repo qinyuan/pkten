@@ -1,6 +1,6 @@
 package com.qinyuan15.pkten.mvc.crawler;
 
-import com.qinyuan.lib.lang.DateUtils;
+import com.qinyuan.lib.lang.time.DateUtils;
 import com.qinyuan.lib.lang.test.TestFileUtils;
 import com.qinyuan15.pkten.mvc.dao.DrawnRecord;
 import org.junit.Test;

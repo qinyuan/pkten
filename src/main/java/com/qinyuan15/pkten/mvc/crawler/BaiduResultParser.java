@@ -1,7 +1,7 @@
 package com.qinyuan15.pkten.mvc.crawler;
 
 import com.google.common.base.Joiner;
-import com.qinyuan.lib.lang.DateUtils;
+import com.qinyuan.lib.lang.time.DateUtils;
 import com.qinyuan.lib.lang.IntegerUtils;
 import com.qinyuan.lib.network.html.HtmlParser;
 import com.qinyuan.lib.network.html.JavaScriptExecutor;

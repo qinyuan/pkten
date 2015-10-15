@@ -1,6 +1,6 @@
 package com.qinyuan15.pkten.mvc.controller;
 
-import com.qinyuan.lib.lang.DateUtils;
+import com.qinyuan.lib.lang.time.DateUtils;
 import com.qinyuan.lib.mvc.controller.BaseController;
 import com.qinyuan.lib.mvc.security.SecurityUtils;
 import com.qinyuan.lib.mvc.security.UserRole;

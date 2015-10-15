@@ -1,7 +1,7 @@
 package com.qinyuan15.pkten.mvc.dao;
 
 import com.qinyuan.lib.database.hibernate.PersistObject;
-import com.qinyuan.lib.lang.DateUtils;
+import com.qinyuan.lib.lang.time.DateUtils;
 import org.apache.commons.lang3.StringUtils;
 
 public class DrawnRecord extends PersistObject {
